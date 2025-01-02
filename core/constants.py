@@ -1,8 +1,13 @@
 import pathlib
+import getpass
 import os
 
 ### Task parameters
-DATA_DIR = '/home/zfu/interbotix_ws/src/act/data' if os.getlogin() == 'zfu' else '/scr/tonyzhao/datasets'
+# Set the DATA_DIR based on the current user's login name.
+# If the user is 'zfu', use the path '/home/zfu/interbotix_ws/src/act/data'.
+# Otherwise, use the path '/scr/tonyzhao/datasets'.
+DATA_DIR = '/actpp/data' if getpass.getuser() == 'pomelo925' else '/scr/datasets'
+
 SIM_TASK_CONFIGS = {
     'sim_transfer_cube_scripted':{
         'dataset_dir': DATA_DIR + '/sim_transfer_cube_scripted',

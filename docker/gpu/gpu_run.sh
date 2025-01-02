@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###### Settings ######
-export COMMAND="bin/bash"
+export COMMAND="/bin/bash"
 export DISPLAY=:0
 #######################
 

@@ -188,4 +188,3 @@ if __name__ == '__main__':
     parser.add_argument('--onscreen_render', action='store_true')
     
     main(vars(parser.parse_args()))
-

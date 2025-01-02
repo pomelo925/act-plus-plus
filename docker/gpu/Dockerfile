@@ -1,8 +1,7 @@
-# Use a base image with Python 3.8.10
 FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04
 
 # Set working directory
-WORKDIR /actpp
+WORKDIR /actpp-core
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -35,6 +34,8 @@ RUN pip install --upgrade pip && \
     packaging \
     h5py \
     ipython
+
+# wandb util
 
 # Clone and install the act package
 RUN git clone https://github.com/tonyzhaozh/act.git && \
