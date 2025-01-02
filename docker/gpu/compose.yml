@@ -1,0 +1,35 @@
+#############################
+###   shared settings     ###
+#############################
+x-shared-settings: &shared-settings
+  build: 
+    context: .  
+    dockerfile: Dockerfile
+    target: final
+  image: pomelo925/ttennis-humble:rtabmap
+  tty: true
+  network_mode: host
+  privileged: true
+  stop_grace_period: 1s
+  
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/root/.Xauthority
+    - /dev/shm:/dev/shm
+    
+    - ../app:/home/app
+  environment:
+    - DISPLAY=${DISPLAY}
+    - COMMAND=${COMMAND}
+  devices:
+    - /dev:/dev
+    
+
+#############################
+###   Container Startup   ###
+#############################
+services:
+  rtabmap-deployment:
+    <<: *shared-settings
+    container_name: rtabmap-deployment
+    command: "/bin/bash -c \"${COMMAND}\""
