@@ -20,7 +20,7 @@ jobs:
       # Ref: https://github.com/docker/metadata-action
       uses: docker/metadata-action@v5
       with:
-        images: ${{ secrets.DOCKERHUB_USERNAME }}/hrc-koch
+        images: ${{ secrets.DOCKERHUB_USERNAME }}/hrc-koch-actpp
         tags: gpu
     - 
       name: Docker Hub Log-in

@@ -2,22 +2,11 @@
 ###   shared settings     ###
 #############################
 x-shared-settings: &shared-settings
-  build: 
-    context: .  
-    dockerfile: Dockerfile
-    target: final
-  image: pomelo925/ttennis-humble:rtabmap
   tty: true
   network_mode: host
   privileged: true
   stop_grace_period: 1s
   
-  volumes:
-    - /tmp/.X11-unix:/tmp/.X11-unix
-    - $HOME/.Xauthority:/root/.Xauthority
-    - /dev/shm:/dev/shm
-    
-    - ../app:/home/app
   environment:
     - DISPLAY=${DISPLAY}
     - COMMAND=${COMMAND}
@@ -29,7 +18,17 @@ x-shared-settings: &shared-settings
 ###   Container Startup   ###
 #############################
 services:
-  rtabmap-deployment:
+  koch-actpp:
     <<: *shared-settings
-    container_name: rtabmap-deployment
+    build: 
+      context: .  
+      dockerfile: Dockerfile
+    image: pomelo925/hrc-koch:gpu
+    container_name: actpp-gpu
+
+    volumes:
+      # - /tmp/.X11-unix:/tmp/.X11-unix
+      # - $HOME/.Xauthority:/root/.Xauthority
+      - /dev/shm:/dev/shm
+    
     command: "/bin/bash -c \"${COMMAND}\""
