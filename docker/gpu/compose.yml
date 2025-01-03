@@ -38,6 +38,8 @@ services:
 
     volumes:
       - ../../core:/actpp-core
+      - ../../robomimic:/robomimic
+
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/shm:/dev/shm
     
