@@ -11,6 +11,9 @@ from torch import nn
 from torchvision.models._utils import IntermediateLayerGetter
 from typing import Dict, List
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from util.misc import NestedTensor, is_main_process
 
 from .position_encoding import build_position_encoding

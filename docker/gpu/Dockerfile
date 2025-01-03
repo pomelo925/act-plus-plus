@@ -33,7 +33,8 @@ RUN pip install --upgrade pip && \
     einops \
     packaging \
     h5py \
-    ipython
+    ipython \ 
+    "numpy<2"
 
 # wandb util
 

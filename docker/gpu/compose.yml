@@ -28,12 +28,12 @@ x-gpu-settings: &gpu
 ###   Container Settings   ###
 ##############################
 services:
-  koch-actpp:
+  koch-actpp-gpu:
     <<: [*common, *gpu]
     build: 
       context: .  
       dockerfile: Dockerfile
-    image: pomelo925/hrc-koch:gpu
+    image: pomelo925/hrc-koch-actpp:gpu
     container_name: actpp-gpu
 
     volumes:
