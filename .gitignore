@@ -1,2 +1,5 @@
 .vscode
 *.hdf5
+*.ckpt
+
+core/dataset

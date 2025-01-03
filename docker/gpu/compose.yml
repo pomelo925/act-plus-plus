@@ -37,9 +37,8 @@ services:
     container_name: actpp-gpu
 
     volumes:
-      # - /tmp/.X11-unix:/tmp/.X11-unix
-      # - $HOME/.Xauthority:/root/.Xauthority
       - ../../core:/actpp-core
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/shm:/dev/shm
     
     environment:

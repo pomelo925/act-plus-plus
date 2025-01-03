@@ -86,7 +86,9 @@ RUN pip3 install --upgrade pip && \
     rospkg \
     torch \
     torchvision \
-    wandb
+    wandb \
+    # ref: https://blog.csdn.net/weixin_43723625/article/details/143209315
+    huggingface-hub==0.24.6 
 
 ################################################################################################
 # - Tools Installation stage 
@@ -135,6 +137,11 @@ COPY --from=actpp-core /usr/local/bin/pip3.8 /usr/local/bin/pip3
 # Install some tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
     nano \
     x11-apps \
     && rm -rf /var/lib/apt/lists/*

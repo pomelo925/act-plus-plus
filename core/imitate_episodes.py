@@ -61,7 +61,7 @@ def main(args):
         from aloha_scripts.constants import TASK_CONFIGS
         task_config = TASK_CONFIGS[task_name]
     dataset_dir = task_config['dataset_dir']
-    # num_episodes = task_config['num_episodes']
+    num_episodes = task_config['num_episodes']
     episode_len = task_config['episode_len']
     camera_names = task_config['camera_names']
     stats_dir = task_config.get('stats_dir', None)
@@ -147,7 +147,7 @@ def main(args):
     config_path = os.path.join(ckpt_dir, 'config.pkl')
     expr_name = ckpt_dir.split('/')[-1]
     if not is_eval:
-        wandb.init(project="mobile-aloha2", reinit=True, entity="mobile-aloha2", name=expr_name)
+        wandb.init(project="hrc-koch-actpp", reinit=True, entity="pomelo925-nthu", name=expr_name)
         wandb.config.update(config)
     with open(config_path, 'wb') as f:
         pickle.dump(config, f)
@@ -156,7 +156,7 @@ def main(args):
         results = []
         for ckpt_name in ckpt_names:
             success_rate, avg_return = eval_bc(config, ckpt_name, save_episode=True, num_rollouts=10)
-            # wandb.log({'success_rate': success_rate, 'avg_return': avg_return})
+            wandb.log({'success_rate': success_rate, 'avg_return': avg_return})
             results.append([ckpt_name, success_rate, avg_return])
 
         for ckpt_name, success_rate, avg_return in results:
