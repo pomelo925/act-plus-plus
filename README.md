@@ -6,13 +6,13 @@
 
 #### Usage
 1. clone this repo.
-    ```=
+    ```
     git clone https://github.com/pomelo925/koch-actpp.git
     cd koch-actpp
     ```
 
 2. startup docker container.
-   ```=
+   ```
    cd docker/gpu
    ./gpu_run.sh
    ```
@@ -21,7 +21,7 @@
 
    a. Train with sample episodes.
      
-    ```=
+    ```sh
     ## download sample episodes (~50GB)
     ## do not alter dataset_dir
     python3 record_sim_episodes.py --task_name sim_transfer_cube_scripted --dataset_dir /scr/datasets/sim_transfer_cube_scripted --num_episodes 50
