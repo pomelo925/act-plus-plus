@@ -1,12 +1,15 @@
 #!/bin/bash
 
-###### Settings ######
+###### Commands ######
 export COMMAND="/bin/bash"
 export DISPLAY=:0
 #######################
 
 xhost +local:docker
-docker compose -p actpp-gpu down --volumes --remove-orphans
+
+## Remove all containers under group actpp-gpu
+# docker compose -p actpp-gpu down --volumes --remove-orphans
+
 docker compose -p actpp-gpu up -d koch-actpp-gpu
 
 
