@@ -23,11 +23,11 @@
      
     ```sh
     ## download sample episodes (~50GB)
-    ## do not alter dataset_dir
+    # do not alter dataset_dir
     python3 record_sim_episodes.py --task_name sim_transfer_cube_scripted --dataset_dir /scr/datasets/sim_transfer_cube_scripted --num_episodes 50
 
     ## train with actpp model
-    ## you might need setup wandb
-    python3 imitate_episodes.py --task_name sim_transfer_cube_scripted --ckpt_dir /actpp-core/ckpt --policy_class ACT --kl_weight 10 --chunk_size 100 --hidden_dim 512 --batch_size 8 --dim_feedforward 3200 --num_steps 2000  --lr 1e-5 --seed 0
+    # you might need setup wandb
+    python3 imitate_episodes.py --task_name sim_transfer_cube_scripted --ckpt_dir /scr/datasets/sim_transfer_cube_scripted/ckpt --policy_class ACT --kl_weight 10 --chunk_size 100 --hidden_dim 512 --batch_size 8 --dim_feedforward 3200 --num_steps 2000  --lr 1e-5 --seed 0
     ```
 

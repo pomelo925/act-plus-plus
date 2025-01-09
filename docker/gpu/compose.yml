@@ -37,6 +37,7 @@ services:
     container_name: actpp-gpu
 
     volumes:
+      - ../../datasets:/scr/datasets/sim_transfer_cube_scripted
       - ../../core:/actpp-core
       - ../../robomimic:/robomimic
 

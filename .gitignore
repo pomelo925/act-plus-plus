@@ -2,6 +2,7 @@
 *.hdf5
 *.ckpt
 
-core/ckpt
+datasets
+core
 
 private.sh
