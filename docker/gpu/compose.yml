@@ -41,6 +41,7 @@ services:
       - ../../core:/actpp-core
       - ../../robomimic:/robomimic
 
+      - $HOME/.Xauthority:/root/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/shm:/dev/shm
     
